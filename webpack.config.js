@@ -6,17 +6,17 @@ module.exports = {
 	entry: {
 		main: [
 			'webpack/hot/dev-server',
-			'webpack-dev-server/client?http://localhost:8888',
+			'webpack-dev-server/client?http://localhost:9000',
 			path.resolve(__dirname, './src/app.js')
 		],
 		login: path.resolve(__dirname, './src/view/login.js')
 	},
+	resolve: {
+		extentions: ['', '.js', '.jsx']
+	},
 	output: {
 		path: path.resolve(__dirname, './'),
 		filename: '[name].js'
-	},
-	resolve: {
-		extentions: ['', '.js', '.jsx']
 	},
 	module: {
 		loaders: [{
@@ -37,7 +37,7 @@ module.exports = {
 			loader: 'url?limit=25000&name=[path][name].[ext]'
 		},]
 	},
-	plugin: [
-		new openBrowserPlugin({url: 'http://localhost:8888'})
+	plugins: [
+		new openBrowserPlugin({url: 'http://localhost:9000'})
 	]
 }
